@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import "./App.scss";
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
+} from "react-router-dom";
+
+import { history } from "./helpers/history";
+import PrivateRoute from "./components/private-routes/PrivateRoute";
+import configs from "./configs/index";
+
+const { routes = [] } = configs;
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router history={history}>
+            <Switch>
+                {routes.map((route) => {
+                    const { path, exact = false, component, private: isPrivate } = route;
+                    if (isPrivate) return <PrivateRoute exact={exact} path={path} component={component} />;
+                    return <Route path={path} component={component} />;
+                })}
+                <Redirect from="*" to="/" />
+            </Switch>
+        </Router>
+
+    );
 }
 
 export default App;

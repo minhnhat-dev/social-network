@@ -1,0 +1,115 @@
+.user-profile-right {
+    margin-top: 25px;
+
+    &__header {
+    
+        &__actions {
+            display: flex;
+            margin-bottom: 10px;
+
+            &__add-friend {
+                padding: 10px 15px;
+                background-color: #1877f2;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                margin-right: 10px;
+                i {
+                    font-size: 20px;
+                    margin-right: 5px;
+                }
+
+                span {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                
+                &:focus {
+                    border: none;
+                }
+            }
+
+            &__inbox {
+                padding: 10px 25px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: black;
+                margin-right: 10px;
+                background-color: #e3e6eb;
+                
+                i {
+                    font-size: 20px;
+                    margin-right: 5px;
+                }
+
+                span {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                
+                &:focus {
+                    border: none;
+                }
+            }
+         
+
+        }
+
+        &__information {
+            margin-top: 10px;
+
+            &__field {
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__hr {
+        margin: 15px 30px 0 0 ;
+        background-color: gray;
+        height: 0.5px;
+        border: none;
+    }
+
+    &__followings {
+        margin-top: 30px;
+        
+        &__header {
+            margin-bottom: 20px;
+        }
+
+        &__profiles {
+            margin-right: 30px;
+            display: flex;
+            flex-wrap: wrap;
+
+            &__item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
+                max-width: 100px;
+                text-align: center;
+                cursor: pointer;
+
+                &__img {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 5px;
+                    object-fit: cover;
+                    margin-bottom: 10px;
+                }
+
+            }
+        }
+    }
+   
+}

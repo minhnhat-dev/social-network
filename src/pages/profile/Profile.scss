@@ -1,0 +1,58 @@
+.profile {
+    display: flex;
+
+    &__right {
+        flex: 9;
+
+        &__content{
+            display: flex;
+        }
+
+        &__header {
+
+            &__images {
+                position: relative;
+                width: 100%;
+                align-items: center;
+
+                &__banner {
+                    width: 100%;
+                    max-height: 300px;
+                    object-fit: cover;
+                }
+    
+                &__cover {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    object-fit: cover;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    bottom: -10px;
+                }
+                
+            }
+
+            &__information {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__username {
+                    font-size: 20px;
+                }
+
+                &__description {
+                    font-weight: 500;
+                    font-size: 17px;
+                }
+            }
+
+        }
+    }
+}

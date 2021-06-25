@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#bbc0c4;
+    border-radius: 5px;
+}
+
+.navy {
+    color: #001f3f;
+}
+
+.blue {
+    color: #0074D9;
+}
+
+.aqua {
+    color: #7FDBFF;
+}
+
+.teal {
+    color: #39CCCC;
+}
+
+.purple {
+    color: #B10DC9;
+}
+
+.fuchsia {
+    color: #F012BE;
+}
+
+.maroon {
+    color: #85144b;
+}
+
+.red {
+    color: #FF4136;
+}
+
+.orange {
+    color: #FF851B;
+}
+
+.yellow {
+    color: #FFDC00;
+}
+
+.olive {
+    color: #3D9970;
+}
+
+.green {
+    color: #2ECC40;
+}
+
+.lime {
+    color: #01FF70;
+}
+
+.black {
+    color: #111111;
+}
+
+.gray {
+    color: #AAAAAA;
+}
+
+.silver {
+    color: #DDDDDD;
+}
+
+.error-dangerous {
+    color: #D8000C;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.error-warning {
+    color: #FF851B;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.text-link {
+    text-decoration: none;
+    color: inherit;
+}
+.is-like {
+    color: #0074D9;
+}
+
+.like-icon-first {
+    font-size: 25px;
+    color: #0074D9;
+    z-index: 9999;
+}
+
+.like-icon-second {
+    font-size: 25px;
+    color:#ff426e;
+    margin-top: 1px;
+}
+// .isa_info {
+//     color: #00529B;
+//     background-color: #BDE5F8;
+// }
+// .isa_success {
+//     color: #4F8A10;
+//     background-color: #DFF2BF;
+// }
+// .isa_warning {
+//     color: #9F6000;
+//     background-color: #FEEFB3;
+// }
+// .isa_error {
+//     color: #D8000C;
+//     background-color: #FFD2D2;
+// }
+// .isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+//     margin:10px 22px;
+//     font-size:2em;
+//     vertical-align:middle;
+// }

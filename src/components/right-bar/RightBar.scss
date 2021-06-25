@@ -1,0 +1,74 @@
+.right-bar {
+    flex: 3;
+    position: sticky;
+    top: 60px;
+    height: 100vh;
+    overflow-y: scroll;
+    
+    &__wrapper {
+        width: 100%;
+        margin-top: 30px;
+
+        &__top {
+            display: flex;
+            align-items: center;
+
+            &__icon {
+                font-size: 40px !important;
+                margin-right: 10px;
+            }
+        }
+
+        &__banner {
+            margin-top: 20px;
+
+            &__img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+
+        &__friends-online {
+            margin-top: 20px;
+
+            &__title {
+                font-weight: 600;
+            }
+
+            &__list {
+                list-style: none;
+                margin: 20px 0;
+                padding: 0;
+
+                &__item {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    margin-top: 15px;
+
+                    &__img {
+                        width: 35px;
+                        height: 35px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        margin-right: 15px;
+                        cursor: pointer;
+                    }
+
+                    &__badge {
+                        position: absolute;
+                        bottom: -3px;
+                        left: 23px;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        border: 2px solid white;
+                        background-color: #00a63f;
+                    }
+                }
+            }
+            
+        }
+    }
+}
