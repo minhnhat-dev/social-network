@@ -40,7 +40,7 @@ function UserProfile({ user }) {
                         </button>
                     </div>
                 )}
-                <h3 className="user-profile-right__header__title">User information</h3>
+                <h3 className="user-profile-right__header__title">User information note</h3>
                 <div className="user-profile-right__header__information">
                     <span className="user-profile-right__header__information__field">City: </span>
                     <span className="user-profile-right__header__information__value">{user.city}</span>
