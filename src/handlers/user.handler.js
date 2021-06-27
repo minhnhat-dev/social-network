@@ -65,9 +65,10 @@ async function getUser({ userId }) {
     return user;
 }
 
-async function getFollowings(params) {
+async function getFollowings(params, dispatch) {
     const response = await userApi.getFollowings(params);
-    return response;
+    const { items: friendsRes = [] } = response;
+    return friendsRes;
 }
 
 const userHandlers = {

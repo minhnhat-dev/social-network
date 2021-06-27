@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Cake } from "@material-ui/icons";
 import "./RightBar.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Users } from "../../dummyData";
 import Online from "../online/Online";
@@ -13,13 +13,16 @@ function RightBar({ userParams }) {
     const userCurrent = useSelector((state) => state.user.user);
     const [friends, setFriends] = useState([]);
     const { userId } = useParams();
+    const dispatch = useDispatch();
     const userIdGetFriend = userId || userCurrent.id;
+
     useEffect(() => {
         const getFriends = async () => {
             const params = { userId: userIdGetFriend, sort: "-createdAt" };
-            const { items: friendsRes = [] } = await userHandlers.getFollowings(params);
+            const friendsRes = await userHandlers.getFollowings(params, dispatch);
             setFriends(friendsRes);
         };
+
         if (userIdGetFriend) {
             getFriends();
         }

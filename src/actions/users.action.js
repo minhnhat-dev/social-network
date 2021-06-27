@@ -27,6 +27,10 @@ const userActions = {
     registerFailure: (error) => ({
         type: ACTIONS.REGISTER_FAILE,
         payload: error
+    }),
+    setFriends: (friends) => ({
+        type: ACTIONS.SET_FRIENDS,
+        payload: friends
     })
 };
 

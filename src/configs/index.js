@@ -28,22 +28,22 @@ const configs = {
             path: "/register",
             component: Register,
             private: false
-        },
-        {
-            path: "/message/:userId",
-            component: Message,
-            private: false
-        },
-        {
-            path: "/devices/:deviceId",
-            component: Devices,
-            private: false
-        },
-        {
-            path: "/monitors/:deviceId",
-            component: Monitors,
-            private: false
         }
+        // {
+        //     path: "/message/:userId",
+        //     component: Message,
+        //     private: false
+        // },
+        // {
+        //     path: "/devices/:deviceId",
+        //     component: Devices,
+        //     private: false
+        // },
+        // {
+        //     path: "/monitors/:deviceId",
+        //     component: Monitors,
+        //     private: false
+        // }
     ],
     pathPublic: ["/login", "/register"]
 };

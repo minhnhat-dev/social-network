@@ -14,15 +14,21 @@ function Devices() {
             {
                 reconnection: true,
                 reconnectionDelay: 500,
-                reconnectionAttempts: 10
+                reconnectionAttempts: 10,
+                extraHeaders: {
+                    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWZhYzI3ZWFmMWZiYzIwMDA2NzJmOGUyIiwiZnVsbF9uYW1lIjoiTmd1eeG7hW4gTWluaCBOaOG6rXQiLCJlbWFpbCI6Im5oYXQubmd1eWVuQGtpbmdmb29kLmNvIiwiZW1wbG95ZWVfY29kZSI6IktGMDAwNDk5IiwibGFzdF9sb2dpbiI6MTYyNDYwMTk5ODY5MCwiZXh0ZW5kX3JvbGVzIjp7fX0sImlhdCI6MTYyNDYwMTk5OCwiZXhwIjoxNjI1MjA2Nzk4fQ.cqMv0kKezMruHV_Xe6tUylZRX-STQz7ssI73OKv_11k" /* auth for header */
+                },
+                auth: {
+                    token: "123" /* auth payload */
+                },
+                query: {
+                    deviceId
+                }
             });
     }, []);
 
     useEffect(() => {
-        socket.current.emit("addDevice", deviceId);
-        socket.current.on("devicesConnect", (devices) => {
-            console.log("devices", devices);
-        });
+
     }, [deviceId]);
 
     useEffect(() => {

@@ -9,6 +9,7 @@ import userHandlers from "../../handlers/user.handler";
 function UserProfile({ user }) {
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     const [friends, setFriends] = useState([]);
+    const [isFollow, setIsFollow] = useState(false);
     const userCurrent = useSelector((state) => state.user.user);
 
     useEffect(() => {

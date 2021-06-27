@@ -7,6 +7,7 @@ const initStateUser = {
     isFetching: false,
     user: JSON.parse(userCurrent),
     posts: [],
+    friends: [],
     error: ""
 };
 

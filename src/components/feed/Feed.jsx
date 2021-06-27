@@ -31,7 +31,7 @@ function Feed() {
 
     return (
         <div className="feed">
-            {user.id === userId && <Share />}
+            {user.id === userId || (!userId && user.id) ? <Share /> : ""}
             {posts.map((post) => <Post key={post.id} post={post} />)}
         </div>
     );
