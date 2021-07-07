@@ -28,6 +28,9 @@ const userActions = {
         type: ACTIONS.REGISTER_FAILE,
         payload: error
     }),
+    getFriends: () => ({
+        type: ACTIONS.GET_FRIENDS
+    }),
     setFriends: (friends) => ({
         type: ACTIONS.SET_FRIENDS,
         payload: friends

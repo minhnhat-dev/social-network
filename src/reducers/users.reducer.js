@@ -62,6 +62,20 @@ const usersReducer = (state = initStateUser, action) => {
             isFetching: false,
             error: action.payload
         };
+    case ACTIONS.GET_FRIENDS:
+        return {
+            ...state,
+            friends: [],
+            isFetching: true,
+            error: ""
+        };
+    case ACTIONS.SET_FRIENDS:
+        return {
+            ...state,
+            friends: action.payload,
+            isFetching: false,
+            error: ""
+        };
     default:
         return state;
     }

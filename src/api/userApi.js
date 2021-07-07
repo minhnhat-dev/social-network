@@ -34,6 +34,18 @@ async function getFollowings(params) {
     return followings;
 }
 
+async function follow(input) {
+    const url = "/users/follow";
+    const user = await clientApi.put(url, input);
+    return user;
+}
+
+async function unFollow(input) {
+    const url = "/users/unfollow";
+    const user = await clientApi.put(url, input);
+    return user;
+}
+
 async function logout(params) {
     return true;
 }
@@ -43,7 +55,9 @@ const usersApi = {
     login,
     register,
     logout,
-    getFollowings
+    getFollowings,
+    follow,
+    unFollow
 };
 
 export default usersApi;

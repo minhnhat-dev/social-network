@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Feed from "../../components/feed/Feed";
 import LeftBar from "../../components/left-bar/LeftBar";
 import RightBar from "../../components/right-bar/RightBar";
 import TopBar from "../../components/top-bar/TopBar";
 import userApi from "../../api/userApi";
+import userHandlers from "../../handlers/user.handler";
 import "./Profile.scss";
 
 function Profile() {
+    const dispatch = useDispatch();
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     const [userParams, setUserParams] = useState({});
     const { userId } = useParams();
+    const currentUser = useSelector((state) => state.user.user);
+
+    useEffect(() => {
+        const getFriends = async () => {
+            const params = { userId: currentUser.id, sort: "-createdAt" };
+            await userHandlers.getFollowings(params, dispatch);
+        };
+
+        if (currentUser.id) {
+            getFriends();
+        }
+    }, [currentUser.id, dispatch]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -23,6 +37,8 @@ function Profile() {
             fetchUser();
         }
     }, [userId]);
+
+    console.log("+ Profile() currentUser.id", currentUser.id);
 
     return (
         <>

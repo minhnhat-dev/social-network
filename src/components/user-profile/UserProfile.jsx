@@ -5,34 +5,65 @@ import { useSelector } from "react-redux";
 import { Users } from "../../dummyData";
 import userConstants from "../../constants/users.constant";
 import userHandlers from "../../handlers/user.handler";
+import toast from "../../api/toast";
 
 function UserProfile({ user }) {
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+    const userCurrent = useSelector((state) => state.user.user);
+    const friendsCurrent = useSelector((state) => state.user.friends);
+    const isAddFriend = !!(friendsCurrent.find((item) => item.followingId === user.id));
+
     const [friends, setFriends] = useState([]);
     const [isFollow, setIsFollow] = useState(false);
-    const userCurrent = useSelector((state) => state.user.user);
 
     useEffect(() => {
         const getFriends = async () => {
             const params = { userId: user.id, sort: "-createdAt" };
-            const { items: friendsRes = [] } = await userHandlers.getFollowings(params);
+            const friendsRes = await userHandlers.getFriendsByUserId(params);
             setFriends(friendsRes);
         };
 
         if (user.id) {
             getFriends();
         }
-    }, [user.id]);
+
+        setIsFollow(isAddFriend);
+    }, [user.id, isAddFriend]);
+
+    const handleAddFriend = async () => {
+        const input = { userId: userCurrent.id, followerId: user.id };
+        const inputUnFollow = { userId: userCurrent.id, unFollowerId: user.id };
+
+        if (isFollow) {
+            await userHandlers.unFollow(inputUnFollow);
+            toast.success("UnFollow Success !");
+        } else {
+            await userHandlers.follow(input);
+            toast.success("Follow Success !");
+        }
+        setIsFollow(!isFollow);
+    };
+
+    console.log("userCurrent.id", userCurrent.id);
+    console.log("friendsCurrent", friendsCurrent);
+    console.log("isAddFriend", isAddFriend);
+    console.log("isFollow", isFollow);
 
     return (
         <div className="user-profile-right">
             <div className="user-profile-right__header">
                 {user.id !== userCurrent.id && (
                     <div className="user-profile-right__header__actions">
-                        <button className="user-profile-right__header__actions__add-friend" type="button">
-                            <i className="fas fa-user-plus" />
+                        <button className="user-profile-right__header__actions__add-friend" type="button" onClick={handleAddFriend}>
+                            {isFollow
+                                ? <i className="fas fa-user-check" />
+                                : <i className="fas fa-user-plus" />}
                             {" "}
-                            <span>Add friend</span>
+                            <span>
+                                {isFollow ? "UnFollow" : "Follow"}
+                                {" "}
+                                friend
+                            </span>
                         </button>
                         <button className="user-profile-right__header__actions__inbox" type="button">
                             <i className="far fa-comment-alt" />

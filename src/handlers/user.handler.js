@@ -9,7 +9,9 @@ const {
     logoutUser,
     registerStart,
     registerSuccess,
-    registerFailure
+    registerFailure,
+    getFriends,
+    setFriends
 } = userActions;
 
 async function login(user, dispatch) {
@@ -66,9 +68,29 @@ async function getUser({ userId }) {
 }
 
 async function getFollowings(params, dispatch) {
+    const actionGetFriends = getFriends();
+    dispatch(actionGetFriends);
+    const response = await userApi.getFollowings(params);
+    const { items: friendsRes = [] } = response;
+    const actionSetFriends = setFriends(friendsRes);
+    dispatch(actionSetFriends);
+    return friendsRes;
+}
+
+async function getFriendsByUserId(params) {
     const response = await userApi.getFollowings(params);
     const { items: friendsRes = [] } = response;
     return friendsRes;
+}
+
+async function follow(input) {
+    const response = await userApi.follow(input);
+    return response;
+}
+
+async function unFollow(input) {
+    const response = await userApi.unFollow(input);
+    return response;
 }
 
 const userHandlers = {
@@ -76,7 +98,10 @@ const userHandlers = {
     register,
     logout,
     getUser,
-    getFollowings
+    getFollowings,
+    getFriendsByUserId,
+    follow,
+    unFollow
 };
 
 export default userHandlers;

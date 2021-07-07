@@ -10,23 +10,7 @@ import userHandlers from "../../handlers/user.handler";
 
 function RightBar({ userParams }) {
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-    const userCurrent = useSelector((state) => state.user.user);
-    const [friends, setFriends] = useState([]);
-    const { userId } = useParams();
-    const dispatch = useDispatch();
-    const userIdGetFriend = userId || userCurrent.id;
-
-    useEffect(() => {
-        const getFriends = async () => {
-            const params = { userId: userIdGetFriend, sort: "-createdAt" };
-            const friendsRes = await userHandlers.getFollowings(params, dispatch);
-            setFriends(friendsRes);
-        };
-
-        if (userIdGetFriend) {
-            getFriends();
-        }
-    }, [userIdGetFriend]);
+    const friendsCurrent = useSelector((state) => state.user.friends);
 
     const HomeRightBar = () => (
         <>
@@ -49,7 +33,7 @@ function RightBar({ userParams }) {
                 <div className="right-bar__wrapper__friends-online">
                     <span className="right-bar__wrapper__friends-online__title">Online Friends</span>
                     <ul className="right-bar__wrapper__friends-online__list">
-                        {friends.map((friend) => {
+                        {friendsCurrent.map((friend) => {
                             const { user } = friend;
                             return (<Online key={user.id} user={user} />);
                         })}
@@ -61,7 +45,7 @@ function RightBar({ userParams }) {
 
     return (
         <div className="right-bar">
-            {userParams ? <UserProfile user={userParams} /> : HomeRightBar()}
+            {userParams ? <UserProfile user={userParams} friendsCurrent={friendsCurrent} /> : HomeRightBar()}
         </div>
     );
 }

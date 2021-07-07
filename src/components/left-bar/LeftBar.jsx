@@ -1,5 +1,5 @@
-import React from 'react';
-import './LeftBar.scss';
+import React, { useEffect, useState } from "react";
+import "./LeftBar.scss";
 import {
     RssFeed,
     Chat,
@@ -9,12 +9,25 @@ import {
     HelpOutline,
     WorkOutline,
     Event
-} from '@material-ui/icons';
-import CastForEducationIcon from '@material-ui/icons/CastForEducation';
-import { Users } from '../../dummyData';
-import CloseFriend from '../close-friends/CloseFriend';
+} from "@material-ui/icons";
+import CastForEducationIcon from "@material-ui/icons/CastForEducation";
+import userHandlers from "../../handlers/user.handler";
+import { Users } from "../../dummyData";
+import CloseFriend from "../close-friends/CloseFriend";
 
 function LeftBar() {
+    const [friends, setFriends] = useState([]);
+
+    useEffect(() => {
+        const getFriends = async () => {
+            const params = { sort: "-createdAt" };
+            const friendsRes = await userHandlers.getFriendsByUserId(params);
+            setFriends(friendsRes);
+        };
+
+        getFriends();
+    }, []);
+    console.log("+ LeftBar() friends", friends);
     return (
         <div className="left-bar">
             <div className="left-bar__wrapper">
@@ -61,7 +74,7 @@ function LeftBar() {
             <hr className="left-bar__hr" />
             <div className="left-bar__friends">
                 <ul className="left-bar__friends__list">
-                    {Users.map((user) => <CloseFriend key={user.id} user={user} />)}
+                    {friends.map((user) => <CloseFriend key={user.id} user={user.user} />)}
                 </ul>
             </div>
         </div>
