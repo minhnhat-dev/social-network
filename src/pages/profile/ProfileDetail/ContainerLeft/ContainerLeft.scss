@@ -1,0 +1,10 @@
+.detail-container-left {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: visible;
+    margin-bottom: 20px;
+}
+@media (max-width: 766px) {
+}

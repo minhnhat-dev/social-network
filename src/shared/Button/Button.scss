@@ -1,0 +1,32 @@
+@import "_settings.scss";
+
+.button-custom {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $base-blue;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    margin: 5px;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background-color: darken($color: $base-blue, $amount: 10);
+    }
+
+    span {
+        font-size: 16px;
+        color: white !important;
+        margin: 5px;
+    }
+
+    i {
+        font-size: 22px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: white;
+    }
+}

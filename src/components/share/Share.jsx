@@ -1,15 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
-import { PhotoLibrary, Label, LocationOn, EmojiEmotions } from "@material-ui/icons";
-import { useSelector } from "react-redux";
-import postHandler from "../../handlers/posts.handler";
-import "./Share.scss";
+import React, { useRef, useState, useEffect } from "react"
+import { PhotoLibrary, Label, LocationOn, EmojiEmotions } from "@material-ui/icons"
+import { useSelector } from "react-redux"
+import postHandler from "../../handlers/posts.handler"
+import "./Share.scss"
 
 function Share() {
-    const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-    const PUBLIC_SERVER_FOLDER = process.env.REACT_APP_PUBLIC_SERVER_FOLDER;
-    const user = useSelector((state) => state.user.user);
-    const description = useRef();
-    const [file, setFile] = useState({});
+    const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER
+    const PUBLIC_SERVER_FOLDER = process.env.REACT_APP_PUBLIC_SERVER_FOLDER
+    const user = useSelector(state => state.user.user)
+    const description = useRef()
+    const [file, setFile] = useState({})
 
     // useEffect(() => {
     //     const deleteFilesUpload = async () => {
@@ -23,38 +23,47 @@ function Share() {
     //     deleteFilesUpload();
     // }, []);
 
-    const handleOnSubmit = async (e) => {
-        e.preventDefault();
+    const handleOnSubmit = async e => {
+        e.preventDefault()
         const newPost = {
             userId: user.id,
             description: description.current.value,
             image: file
-        };
-        const post = await postHandler.createPost(newPost);
-        window.location.reload();
-    };
+        }
+        const post = await postHandler.createPost(newPost)
+        window.location.reload()
+    }
 
     const handleDeleteImage = async () => {
-        await postHandler.deleteFileUploadImage(file);
-        localStorage.removeItem("fileUpload");
-        setFile({});
-    };
+        await postHandler.deleteFileUploadImage(file)
+        localStorage.removeItem("fileUpload")
+        setFile({})
+    }
 
-    const handleUploadFile = async (e) => {
-        const fileUpload = e.target.files[0];
-        const formData = new FormData();
-        formData.append("image", fileUpload);
-        const fileRes = await postHandler.uploadImage(formData);
-        localStorage.setItem("fileUpload", JSON.stringify(fileRes));
-        setFile(fileRes);
-    };
+    const handleUploadFile = async e => {
+        const fileUpload = e.target.files[0]
+        const formData = new FormData()
+        formData.append("image", fileUpload)
+        const fileRes = await postHandler.uploadImage(formData)
+        localStorage.setItem("fileUpload", JSON.stringify(fileRes))
+        setFile(fileRes)
+    }
 
     return (
         <div className="share">
             <div className="share__wrapper">
                 <div className="share__wrapper__top">
-                    <img src={user && user.profilePicture ? user.profilePicture : `${PUBLIC_FOLDER}person/noAvatar.png`} alt="" className="share__wrapper__top__img" />
-                    <input ref={description} placeholder={`What's in your mind ${user?.name} ?`} type="text" className="share__wrapper__top__input" />
+                    <img
+                        src={user && user.profilePicture ? user.profilePicture : `${PUBLIC_FOLDER}person/noAvatar.png`}
+                        alt=""
+                        className="share__wrapper__top__img"
+                    />
+                    <input
+                        ref={description}
+                        placeholder={`What's in your mind ${user?.name} ?`}
+                        type="text"
+                        className="share__wrapper__top__input"
+                    />
                 </div>
                 <hr className="share__wrapper__hr" />
                 {file && file.filename && (
@@ -91,12 +100,14 @@ function Share() {
                         </ul>
                     </div>
                     <div className="share__wrapper__bottom__button">
-                        <button type="submit" className="share__wrapper__bottom__button__icon">Share</button>
+                        <button type="submit" className="share__wrapper__bottom__button__icon">
+                            Share
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
-    );
+    )
 }
 
-export default Share;
+export default Share

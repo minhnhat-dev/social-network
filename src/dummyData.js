@@ -59,7 +59,7 @@ export const Users = [
         username: "Safak Kocaoglu",
         online: true
     }
-];
+]
 
 export const Posts = [
     {
@@ -146,4 +146,4 @@ export const Posts = [
         like: 104,
         comment: 12
     }
-];
+]

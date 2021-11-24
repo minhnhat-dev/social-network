@@ -1,0 +1,57 @@
+@import "_settings.scss";
+
+.section-images {
+    box-shadow: $box_shadow_default;
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px;
+    max-width: 100%;
+    margin-top: 20px;
+    .section-images-header {
+        display: flex;
+        align-self: center;
+        justify-content: space-between;
+        .images-header-icon {
+            margin-right: 15px;
+
+            button {
+                cursor: pointer;
+                width: 120px;
+                height: 35px;
+                font-size: 15px;
+                color: $base-blue;
+                font-weight: 400;
+            }
+        }
+    }
+    .section-images-list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        .section-images-item {
+            img {
+                width: 125px;
+                height: 125px;
+                margin: 3px;
+                border-radius: 5px;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width: 766px) {
+    .section-images {
+        .section-images-list {
+            .section-images-item {
+                img {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+}

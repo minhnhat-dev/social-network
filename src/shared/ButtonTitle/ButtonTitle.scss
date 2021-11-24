@@ -1,0 +1,53 @@
+@import "_settings.scss";
+
+.button-title {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: $fds-gray-20;
+    cursor: pointer;
+    position: relative;
+
+    .button-title-icon {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        cursor: pointer;
+    }
+    .button-title-text {
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    .button-title-icon-tooltip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: $fds-gray-80;
+        padding: 5px 10px;
+        color: white;
+        opacity: 0;
+        visibility: hidden;
+        margin-top: 2px;
+        position: absolute;
+        z-index: 9999;
+        white-space: nowrap;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &:hover .button-title-icon-tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+}

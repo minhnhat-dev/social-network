@@ -1,0 +1,25 @@
+@import "_settings.scss";
+
+.not-found {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    .not-found-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .not-found-content-header {
+            color: $fds-gray-70;
+        }
+
+        .not-found-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}

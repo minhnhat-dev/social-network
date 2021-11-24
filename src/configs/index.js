@@ -1,10 +1,10 @@
-import Home from "../pages/home/Home";
-import Profile from "../pages/profile/Profile";
-import Login from "../pages/login/Login";
-import Register from "../pages/register/Register";
-import Message from "../pages/message/Message";
-import Devices from "../pages/devices/Devices";
-import Monitors from "../pages/monitors/Monitors";
+import Home from "../pages/home/Home"
+import Profile from "../pages/profile/Profile"
+import Login from "../pages/login/Login"
+import Register from "../pages/register/Register"
+import Messenger from "../pages/messenger/Messenger"
+import Devices from "../pages/devices/Devices"
+import Monitors from "../pages/monitors/Monitors"
 
 const configs = {
     routes: [
@@ -29,11 +29,11 @@ const configs = {
             component: Register,
             private: false
         },
-        // {
-        //     path: "/message/:userId",
-        //     component: Message,
-        //     private: false
-        // },
+        {
+            path: "/messenger",
+            component: Messenger,
+            private: true
+        },
         {
             path: "/devices/:deviceId",
             component: Devices,
@@ -46,6 +46,6 @@ const configs = {
         }
     ],
     pathPublic: ["/login", "/register"]
-};
+}
 
-export default configs;
+export default configs

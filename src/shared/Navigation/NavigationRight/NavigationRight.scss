@@ -1,0 +1,50 @@
+@import "_settings.scss";
+
+.navigation-right {
+    flex: 3.5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    .notify-count {
+        position: relative;
+        .badge {
+            position: absolute;
+            height: 22px;
+            width: 22px;
+            background-color: $base-cherry;
+            border-radius: 50%;
+            top: -5px;
+            right: 0;
+            color: white;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .navigation-right-user {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        padding: 5px 7px;
+        border-radius: 50px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $fds-gray-10;
+        }
+
+        .right-user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .right-user-name {
+            font-weight: 500;
+        }
+    }
+}

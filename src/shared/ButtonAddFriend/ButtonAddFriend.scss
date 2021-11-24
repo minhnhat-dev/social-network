@@ -1,0 +1,61 @@
+@import "_settings.scss";
+
+.btn-add-friend {
+    display: flex;
+    align-items: center;
+
+    .not-add-friend-btn {
+    }
+    .is-add-friended {
+        // z-index: 9999;
+        position: relative;
+        .is-add-friend-tooltip {
+            width: 280px;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            left: 0;
+            top: 115%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: $box_shadow_border;
+
+            &.show {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .is-add-friend-tooltip-table {
+                padding: 5px 10px;
+                .is-add-friend-tooltip-item {
+                    margin: 7px 0;
+                    padding: 7px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $fds-gray-05;
+                    }
+                    button {
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+                    }
+                    &::before {
+                        content: "";
+                        width: 15px;
+                        height: 15px;
+                        background-color: white;
+                        position: absolute;
+                        top: -8px;
+                        left: 8%;
+                        transform: translateX(-50%);
+                        transform: rotate(45deg);
+                        border-left: 1px solid $fds-gray-10;
+                        border-top: 1px solid $fds-gray-10;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,16 +1,15 @@
-import userConstants from "../constants/users.constant";
-
-const { ACTIONS } = userConstants;
+import { ACTIONS } from "../constants/users.constant"
 
 const userActions = {
-    loginStart: () => ({
-        type: ACTIONS.LOGIN_START
+    login: body => ({
+        type: ACTIONS.LOGIN,
+        payload: body
     }),
-    loginSuccess: (user) => ({
+    loginSuccess: user => ({
         type: ACTIONS.LOGIN_SUCCESS,
         payload: user
     }),
-    loginFailure: (error) => ({
+    loginFailure: error => ({
         type: ACTIONS.LOGIN_FAILE,
         payload: error
     }),
@@ -20,21 +19,21 @@ const userActions = {
     registerStart: () => ({
         type: ACTIONS.REGISTER_START
     }),
-    registerSuccess: (user) => ({
+    registerSuccess: user => ({
         type: ACTIONS.REGISTER_SUCCESS,
         payload: user
     }),
-    registerFailure: (error) => ({
+    registerFailure: error => ({
         type: ACTIONS.REGISTER_FAILE,
         payload: error
     }),
     getFriends: () => ({
         type: ACTIONS.GET_FRIENDS
     }),
-    setFriends: (friends) => ({
+    setFriends: friends => ({
         type: ACTIONS.SET_FRIENDS,
         payload: friends
     })
-};
+}
 
-export default userActions;
+export default userActions

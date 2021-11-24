@@ -1,0 +1,23 @@
+@import "_settings.scss";
+
+li:hover {
+    background-color: $fds-gray-20;
+}
+
+.left-bar-content-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    .left-bar-content-item-avatar {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}

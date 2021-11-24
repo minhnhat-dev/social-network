@@ -1,0 +1,38 @@
+@import "_settings.scss";
+
+.friend-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: $box_shadow_border;
+    padding: 20px;
+
+    .friend-card-header {
+        display: flex;
+        align-items: center;
+
+        .card-header-avatar {
+            width: 85px;
+            height: 85px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .card-header-content {
+            margin-left: 10px;
+        }
+    }
+
+    .btn-add-friend {
+        .button-title {
+            padding: 7px;
+        }
+        button {
+            font-size: 13px;
+        }
+        .is-add-friend-tooltip {
+            top: 125%;
+        }
+    }
+}

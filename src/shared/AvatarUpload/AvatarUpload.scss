@@ -1,0 +1,22 @@
+@import "_settings.scss";
+
+.avatar-upload {
+    position: relative;
+    .avatar-upload-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+    .avatar-upload-file {
+        font-size: 20px;
+        position: absolute;
+        background-color: $fds-gray-25;
+        padding: 7px;
+        bottom: 5px;
+        right: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,24 @@
+@import "_settings.scss";
+
+.visible-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    &:hover {
+        background-color: $fds-gray-05;
+    }
+
+    .visible-item-left {
+        display: flex;
+        .visible-item-icon {
+            background-color: transparent;
+            i {
+                font-size: 25px;
+            }
+        }
+    }
+    .visible-item-icon-right {
+        margin-right: 10px;
+    }
+}

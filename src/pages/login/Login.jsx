@@ -1,104 +1,99 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import { Formik, Form, FastField } from "formik";
-import { CircularProgress } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
-import InputField from "../../components/custom-fields/InputField";
-import userHandlers from "../../handlers/user.handler";
-import userSchemas from "../../schemas/users.schema";
-import "./Login.scss";
+import React, { useEffect, useRef, useState } from "react"
+import { useDispatch, useSelector, shallowEqual } from "react-redux"
+import { Link, useHistory } from "react-router-dom"
+import { login } from "actions/auth.action"
+import Card from "shared/Card/Card"
+import TextInput from "shared/TextInput/TextInput"
+import Button from "shared/Button/Button"
+import toast from "helpers/toast.helper"
+
+import "./Login.scss"
+const styleContent = {
+    height: "340px",
+    width: "370px"
+}
+
+const styleInput = {
+    width: "270px",
+    marginBottom: "7px",
+    height: "42px"
+}
+
+const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER
+const borderStyleError = "2px solid #fa383e"
+const defaultBorder = "1px solid #323232"
 
 function Login() {
-    const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-    const dispatch = useDispatch();
-    const history = useHistory();
-    /* reset login status */
-    useEffect(() => {
-        const logout = async () => {
-            await userHandlers.logout(dispatch);
-        };
-        logout();
-    }, []);
+    const refEmail = useRef()
+    const refPassword = useRef()
+    const dispatch = useDispatch()
+    const [hidePassword, setHidePassword] = useState(false)
+    const handleOnClick = async () => {
+        const email = refEmail.current.value
+        const password = refPassword.current.value
 
-    /* can handle with context */
-    // const { dispatch, user, isFetching, error } = useContext(AuthContext);
-    const isFetching = useSelector((state) => state.user.isFetching, shallowEqual) || false;
-    const { loginSchema } = userSchemas;
+        if (!email) return validateInputRef(refEmail)
+        if (!password) return validateInputRef(refPassword)
 
-    const initValues = {
-        email: "",
-        password: ""
-    };
-
-    const handleSubmitLogin = async (values, actions) => {
-        const userLogin = await userHandlers.login(values, dispatch);
-        if (userLogin) {
-            return history.push("/");
+        const body = {
+            email,
+            password
         }
-        return true;
-    };
+
+        await dispatch(login(body))
+    }
+
+    const validateInputRef = refElement => {
+        refElement.current.style.border = borderStyleError
+        return refElement.current.focus()
+    }
+
+    const handleOnBlur = refElement => {
+        refElement.current.style.border = defaultBorder
+    }
 
     return (
         <div className="login">
-            <div className="login__wrapper">
-                <div className="login__wrapper__left">
-                    <h2 className="login__wrapper__left__title">My Social Network</h2>
-                    <span className="login__wrapper__left__description">Connect many people in the worlds</span>
+            <Card show={true} styleContent={styleContent}>
+                <div className="card-login-header">
+                    <img className="icon-email" src={`${PUBLIC_FOLDER}icons/email.png`} alt="" />
+                    <span className="icon-text">Login</span>
                 </div>
-                <div className="login__wrapper__right">
-                    <Formik
-                        initialValues={initValues}
-                        validationSchema={loginSchema}
-                        onSubmit={handleSubmitLogin}
-                    >
-                        {(formikProps) => (
-                            <Form className="login__wrapper__right__box">
-                                <div className="login__wrapper__right__box__group">
-                                    <FastField
-                                        name="email"
-                                        component={InputField}
-                                        type="email"
-                                        placeholder="Username"
-                                        className="login__wrapper__right__box__group__input"
-                                        classError="error-dangerous"
-                                    />
-                                </div>
-                                <div className="login__wrapper__right__box__group">
-                                    <FastField
-                                        name="password"
-                                        component={InputField}
-                                        type="password"
-                                        placeholder="Password"
-                                        className="login__wrapper__right__box__group__input"
-                                        classError="error-dangerous"
-                                    />
-                                </div>
-                                <button disabled={isFetching} type="submit" className="login__wrapper__right__box__btn-login">
-                                    {
-                                        isFetching
-                                            ? <CircularProgress color="inherit" size="30px" />
-                                            : "Log In"
-                                    }
-
-                                </button>
-                                <span className="login__wrapper__right__box__text-forgot">Forgot Password?</span>
-                                <Link to="/register" className="login__wrapper__right__box__btn-create">
-                                    <button type="button" className="login__wrapper__right__box__btn-create">
-                                        {
-                                            isFetching
-                                                ? <CircularProgress color="inherit" size="30px" />
-                                                : "Create A New Account"
-                                        }
-                                    </button>
-                                </Link>
-                            </Form>
-                        )}
-                    </Formik>
-                    <img src={`${PUBLIC_FOLDER}signature.jpg`} alt="" className="login__wrapper__right__sign" />
+                <div className="card-login-body">
+                    <TextInput
+                        ref={refEmail}
+                        placeholder="Email"
+                        style={styleInput}
+                        onBlur={() => handleOnBlur(refEmail)}
+                    ></TextInput>
+                    <div className="group-password">
+                        <TextInput
+                            type={!hidePassword ? "password" : "text"}
+                            ref={refPassword}
+                            placeholder="Password"
+                            style={styleInput}
+                            onBlur={() => handleOnBlur(refPassword)}
+                        ></TextInput>
+                        <small onClick={() => setHidePassword(!hidePassword)} className="hide-password">
+                            {hidePassword ? "Hide" : "Show"}
+                        </small>
+                    </div>
+                    <Link className="text-link" to="/login">
+                        <span className="forgot-password">Forgot password?</span>
+                    </Link>
+                    <span>
+                        You don't have account?{" "}
+                        <Link className="text-link" to="/register">
+                            <strong>Register</strong>
+                        </Link>
+                    </span>
                 </div>
-            </div>
+                <div className="card-login-footer">
+                    <Button handleOnClick={handleOnClick} title="Login"></Button>
+                </div>
+            </Card>
         </div>
-    );
+    )
 }
 
-export default Login;
+export default Login

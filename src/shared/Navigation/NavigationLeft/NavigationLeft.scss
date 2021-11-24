@@ -1,0 +1,39 @@
+@import "_settings.scss";
+
+.navigation-left {
+    display: flex;
+    align-items: center;
+    flex: 3.5;
+    .navigation-left-icon {
+        font-size: 45px;
+        color: $base-blue;
+        margin-right: 10px;
+    }
+    .navigation-left-search {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: $fds-gray-10;
+        border-radius: 55px;
+        width: 250px;
+        height: 45px;
+        outline: none;
+        border: none;
+
+        .left-search-icon {
+            font-size: 16px;
+            margin-right: 10px;
+            color: $fds-gray-80;
+        }
+
+        .left-search-input {
+            width: 100%;
+            outline: none;
+            border: none;
+            background-color: inherit;
+            height: 40px;
+            font-size: 17px;
+            margin-right: 10px;
+        }
+    }
+}

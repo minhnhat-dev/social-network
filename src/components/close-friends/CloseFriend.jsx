@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 
 function CloseFriend({ user }) {
-    const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+    const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER
 
     return (
         <Link to={`/profile/${user.id}`} className="text-link">
@@ -18,10 +18,8 @@ function CloseFriend({ user }) {
                 />
                 <span className="left-bar__friends__list__item__text">{user.name}</span>
             </li>
-
         </Link>
-
-    );
+    )
 }
 
-export default CloseFriend;
+export default CloseFriend

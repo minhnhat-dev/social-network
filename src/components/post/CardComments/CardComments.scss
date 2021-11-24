@@ -1,0 +1,48 @@
+@import "_settings.scss";
+
+.post-card-comments {
+    margin: 0 20px;
+    border-top: 1px solid #8d949e;
+    .post-card-comments-wrapper {
+        padding: 10px 0;
+
+        .card-comments-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .comments-input-avatar {
+                img {
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 5px;
+                }
+            }
+
+            .comments-input-group {
+                width: 100%;
+                overflow: auto;
+                height: 40px;
+                background-color: $fds-gray-05;
+                border-radius: 50px;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .comments-input {
+                    width: 95%;
+                    padding: 5px;
+                    border: none;
+                    outline: none;
+                    background-color: inherit;
+                    font-size: 17px;
+                }
+            }
+        }
+
+        .card-comments-footer {
+            padding-bottom: 15px;
+        }
+    }
+}

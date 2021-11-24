@@ -1,0 +1,145 @@
+@import "_settings.scss";
+
+.edit-profile {
+    .edit-profile-background {
+        .edit-profile-header-wrapper {
+            .edit-profile-header {
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+
+                .profile-header-icon-close {
+                    position: absolute;
+                    top: 10px;
+                    right: 5px;
+
+                    i {
+                        font-size: 32px;
+                        border-radius: 50%;
+                        color: $fds-gray-80;
+                    }
+                }
+            }
+        }
+        .edit-profile-body {
+            padding: 10px 15px;
+            .profile-body-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                width: 100%;
+                margin: 10px 0;
+                .body-item-header {
+                    display: flex;
+                    justify-content: flex-start;
+                    width: 100%;
+                }
+
+                .body-item-btn-save {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    background-color: $base-blue;
+                    padding: 7px 10px;
+                    > * {
+                        color: white;
+                    }
+                }
+
+                .item-container-small {
+                    font-weight: 500;
+                    max-width: 40%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    &.cover {
+                        max-width: 90%;
+                    }
+                }
+
+                .body-item-container {
+                    &.cover {
+                        padding: 20px;
+                    }
+                    .cover-upload {
+                        img {
+                            width: 500px;
+                            height: 200px;
+                            border-radius: 10px;
+                        }
+                        i {
+                            right: -10px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+            }
+        }
+        .section-information {
+            padding: 10px 15px;
+            background-color: white;
+
+            table {
+                border-collapse: separate;
+                border-spacing: 0 25px;
+            }
+
+            .section-information-body {
+                position: relative;
+                margin: 20px 10px;
+
+                .form-input-gender {
+                    margin-left: 10px;
+                    display: flex;
+                    align-items: center;
+
+                    .input-gender-item {
+                        display: flex;
+                        align-items: center;
+
+                        .radio-button {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+                .section-information-btn-save {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    background-color: $base-blue;
+                    padding: 7px 10px;
+                    > * {
+                        color: white;
+                    }
+                }
+                .relationship-group {
+                    display: flex;
+                    align-items: center;
+
+                    .relationship-group-btn {
+                        width: 100px;
+                        margin-left: 10px;
+                        outline: none;
+                        border: none;
+                        padding: 7px 0;
+                        border-radius: 5px;
+                        margin-right: 15px;
+                        background-color: $base-blue;
+                        color: white;
+                    }
+                }
+            }
+        }
+        .edit-profile-introduce {
+            &.section-introduce {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    }
+}

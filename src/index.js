@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import App from "./App";
-import { AuthProvider } from "./context/AuthContext"; /* only use for app small */
-import store from "./store";
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
+import App from "./App"
+import { AuthProvider } from "./context/AuthContext" /* only use for app small */
+import store from "./store"
 
 ReactDOM.render(
     <Provider store={store}>
@@ -12,4 +12,4 @@ ReactDOM.render(
         </React.StrictMode>
     </Provider>,
     document.getElementById("root")
-);
+)

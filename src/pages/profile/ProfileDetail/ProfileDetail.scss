@@ -1,0 +1,44 @@
+@import "_settings.scss";
+
+.profile-detail {
+    height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    padding-bottom: 50px;
+    .profile-detail-header {
+        border-bottom: 1px solid $fds-gray-30;
+        .detail-header-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .profile-detail-container {
+        max-width: 100%;
+        background-color: $fds-gray-05;
+        padding: 10px 12%;
+        position: relative;
+        .profile-detail-container-wrapper {
+            display: flex;
+        }
+    }
+}
+
+@media (max-width: 766px) {
+    .profile-detail {
+        position: absolute;
+        top: calc(#{$navigation-height} * 2);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        .profile-detail-container {
+            padding: 0;
+            .profile-detail-container-wrapper {
+                flex-direction: column;
+            }
+        }
+    }
+}

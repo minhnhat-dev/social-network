@@ -1,0 +1,107 @@
+@import "_settings.scss";
+
+.user-card {
+    max-width: 120px;
+    margin: 10px 5px;
+    position: relative;
+
+    &:hover .user-card-tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .user-card-img {
+        width: 120px;
+        height: 120px;
+        margin: 3px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .user-card-tooltip {
+        border-radius: 8px;
+        position: absolute;
+        width: 400px;
+        height: 230px;
+        left: 50%;
+        bottom: 110%;
+        // top: -100%;
+        transform: translateX(-50%);
+        background-color: white;
+        box-shadow: $box_shadow_default;
+        padding: 15px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+
+        &::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            transform: rotate(45deg);
+            border-bottom: 1px solid $fds-gray-10;
+            border-right: 1px solid $fds-gray-10;
+        }
+
+        .user-card-header {
+            display: flex;
+
+            .user-card-left {
+                margin-right: 15px;
+                .card-left-avatar {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            .user-card-right {
+                .card-right-item {
+                    margin: 5px 0px;
+                    display: flex;
+                    align-items: flex-start;
+                    .right-item-icon {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        .user-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            .card-footer-icon {
+                width: 155px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .list-btn {
+                display: flex;
+                li {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: #777;
+                    transition: 0.5s;
+                    margin: 0 20px;
+                    &:hover {
+                        background-color: #86ff3b;
+                        box-shadow: 0 0 0 4px #333, 0 0 0 6px #86ff3b;
+                    }
+                }
+            }
+        }
+    }
+}

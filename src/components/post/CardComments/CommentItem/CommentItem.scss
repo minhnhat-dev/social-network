@@ -1,0 +1,88 @@
+@import "_settings.scss";
+
+.comment-item {
+    margin: 10px 0;
+    .comment-item-wrapper {
+        display: flex;
+
+        .comment-item-avatar {
+            width: 35px;
+            height: 35px;
+            margin-right: 5px;
+        }
+
+        .comment-item-body {
+            margin-left: 10px;
+
+            .item-content-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                .content-edit {
+                    .card-comments-input {
+                        width: 500px;
+                    }
+                    .content-edit-text {
+                    }
+                }
+
+                .comment-item-content {
+                    display: flex;
+                    flex-direction: column;
+
+                    background-color: $fds-gray-05;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    outline: none;
+                    border: none;
+                    position: relative;
+
+                    .content-text {
+                        text-align: start;
+                    }
+                    .item-content-username {
+                        display: table;
+                    }
+                }
+
+                .comment-item-action {
+                    margin-left: 5px;
+                    .header-action-icon {
+                        font-size: 14px;
+                        outline: none;
+                        border: none;
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        background-color: transparent;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $fds-gray-05;
+                        }
+                    }
+                    .dropdown-list {
+                        z-index: 999;
+                        top: 90%;
+                        .dropdown-list-table {
+                            .dropdown-list-item {
+                                &::before {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .comment-item-icons {
+                padding: 4px 15px;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: transparent;
+    }
+}

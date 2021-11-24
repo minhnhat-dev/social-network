@@ -1,0 +1,50 @@
+@import "_settings.scss";
+
+.dropdown-list {
+    width: 250px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    right: -10px;
+    top: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: $box_shadow_border;
+
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .dropdown-list-table {
+        padding: 5px 10px;
+        .dropdown-list-item {
+            margin: 7px 0;
+            padding: 7px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $fds-gray-05;
+            }
+            button {
+                outline: none;
+                border: none;
+                background-color: transparent;
+            }
+            &::before {
+                content: "";
+                width: 15px;
+                height: 15px;
+                background-color: white;
+                position: absolute;
+                top: -8px;
+                right: 21px;
+                transform: translateX(-50%);
+                transform: rotate(45deg);
+                border-left: 1px solid $fds-gray-10;
+                border-top: 1px solid $fds-gray-10;
+            }
+        }
+    }
+}

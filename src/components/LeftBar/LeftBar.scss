@@ -1,0 +1,36 @@
+@import "_settings.scss";
+
+.left-bar {
+    flex: 3.5;
+    background-color: $fds-gray-05;
+    position: sticky;
+    top: $navigation-height;
+    height: calc(100vh - #{$navigation-height});
+
+    .left-bar-wrapper {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .left-bar-content {
+            width: 80%;
+            overflow-y: auto;
+
+            .left-bar-content-page-hot {
+                .page-hot-title {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 10px;
+                    }
+                }
+                .page-hot-list {
+                }
+            }
+        }
+    }
+}

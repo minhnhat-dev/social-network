@@ -1,0 +1,100 @@
+@import "_settings.scss";
+
+.post-card-header {
+    padding: 10px 15px 5px 15px;
+
+    .post-card-header-wrapper {
+        width: 100%;
+        height: 50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .card-header-user {
+            display: flex;
+            align-items: center;
+
+            .avatar {
+                margin-right: 10px;
+            }
+
+            .header-user-info {
+                .user-info-visible {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+
+        .card-header-action {
+            z-index: 99;
+            position: relative;
+            display: flex;
+
+            .header-action-icon {
+                font-size: 16px;
+                outline: none;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: transparent;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $fds-gray-20;
+                }
+            }
+
+            .is-add-friend-tooltip {
+                width: 280px;
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                left: 0;
+                top: 115%;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: $box_shadow_border;
+
+                &.show {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                .is-add-friend-tooltip-table {
+                    padding: 5px 10px;
+                    .is-add-friend-tooltip-item {
+                        margin: 7px 0;
+                        padding: 7px;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $fds-gray-05;
+                        }
+                        button {
+                            outline: none;
+                            border: none;
+                            background-color: transparent;
+                        }
+                        &::before {
+                            content: "";
+                            width: 15px;
+                            height: 15px;
+                            background-color: white;
+                            position: absolute;
+                            top: -8px;
+                            left: 8%;
+                            transform: translateX(-50%);
+                            transform: rotate(45deg);
+                            border-left: 1px solid $fds-gray-10;
+                            border-top: 1px solid $fds-gray-10;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

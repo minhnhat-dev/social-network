@@ -1,0 +1,13 @@
+@import "_settings.scss";
+
+.post-detail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    height: calc(100vh - #{$navigation-height});
+
+    .post-detail-item {
+        width: 40vw;
+    }
+}

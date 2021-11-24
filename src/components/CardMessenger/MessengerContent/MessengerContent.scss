@@ -1,0 +1,56 @@
+@import "_settings.scss";
+
+.messenger-content-box {
+    display: inline-flex;
+    margin: 5px;
+    width: 85%;
+
+    &.own {
+        flex-direction: row-reverse;
+        float: right;
+
+        .content-box-avatar {
+            img {
+                margin-left: 5px;
+            }
+        }
+
+        .content-box-text {
+            .text-messenger-time {
+                float: right;
+                margin-right: 5px;
+            }
+            .text-messenger {
+                background-color: $base-blue;
+                color: white;
+            }
+        }
+    }
+
+    .content-box-avatar {
+        display: flex;
+        align-items: flex-end;
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    }
+
+    .content-box-text {
+        .text-messenger {
+            border-radius: 12px;
+            padding: 10px;
+            margin: 2px;
+            background-color: $fds-gray-10;
+            color: black;
+        }
+        .text-messenger-time {
+            margin-left: 5px;
+        }
+    }
+}

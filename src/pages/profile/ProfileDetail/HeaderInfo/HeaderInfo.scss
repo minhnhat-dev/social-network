@@ -1,0 +1,94 @@
+@import "_settings.scss";
+
+.detail-header-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 120px;
+    padding: 0 12%;
+    z-index: auto;
+
+    .header-info-left {
+        flex: 1;
+        display: flex;
+        .info-left-image {
+            width: 160px;
+            position: relative;
+            margin-right: 10px;
+            .left-image {
+                border-radius: 50%;
+                border: 5px solid white;
+            }
+        }
+        .info-left-user {
+            flex: 2;
+            margin-top: 50px;
+            line-height: 30px;
+            .left-user-username {
+                font-size: 30px;
+            }
+            .left-user-total-friends {
+                font-weight: 500;
+                font-size: 17px;
+            }
+            .left-user-friends {
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+
+                .user-friends-item {
+                    margin-left: -8px;
+                    img {
+                        z-index: 1;
+                        border: 3px solid white;
+                    }
+                }
+            }
+        }
+    }
+    .header-info-right {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        position: relative;
+
+        .info-right-icons {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            .info-right-btn {
+                margin-right: 10px;
+            }
+            .blue {
+                background-color: $fds-blue-60;
+                color: white;
+                button {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 766px) {
+    .detail-header-info {
+        padding: 0;
+        position: relative;
+        .header-info-right {
+            display: none;
+        }
+        .header-info-left {
+            .info-left-user {
+                display: none;
+            }
+            .info-left-image {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

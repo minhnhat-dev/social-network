@@ -1,0 +1,22 @@
+@import "_settings.scss";
+
+.card-like {
+    position: absolute;
+    bottom: -6px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: $box_shadow_default;
+    padding: 2px;
+
+    .card-like-img {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid $base-blue;
+    }
+}

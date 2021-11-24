@@ -1,0 +1,89 @@
+@import "_settings.scss";
+
+.create-post {
+    box-shadow: $box_shadow_default;
+    border-radius: 5px;
+    background-color: white;
+    width: 100%;
+    padding: 5px 10px;
+
+    .create-post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        .create-post-btn {
+            background-color: $fds-gray-10;
+            padding: 10px;
+            width: 500px;
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            display: flex;
+            justify-content: flex-start;
+            cursor: pointer;
+            .post-btn-text {
+                font-size: 18px;
+                font-weight: 400;
+                color: $fds-gray-70;
+                margin-left: 5px;
+            }
+        }
+        .create-post-avatar {
+            width: 55px;
+            height: 55px;
+            margin-right: 10px;
+        }
+    }
+    .create-post-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 5px 0px;
+
+        .post-footer-icon {
+            flex: 1;
+            outline: none;
+            border: none;
+            padding: 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: $fds-gray-70;
+            background-color: transparent;
+            cursor: pointer;
+
+            .footer-icon {
+                font-size: 25px;
+            }
+
+            span {
+                font-weight: 500;
+                font-size: 16px;
+                margin-left: 10px;
+            }
+            &:hover {
+                background-color: $fds-gray-05;
+            }
+        }
+    }
+}
+@media (max-width: 766px) {
+    .create-post {
+        .create-post-footer {
+            .post-footer-icon {
+                .footer-icon {
+                    font-size: 20px;
+                }
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .create-post-header {
+        .create-post-avatar {
+            display: none;
+        }
+    }
+}

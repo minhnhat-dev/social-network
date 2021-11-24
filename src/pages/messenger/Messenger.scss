@@ -1,0 +1,95 @@
+.messenger {
+    display: flex;
+    height: calc(100vh - 60px);
+    overflow-x: hidden;
+    .menu {
+        flex: 3;
+
+        .menu-wrapper {
+            height: 100%;
+            margin: 20px 20px;
+
+            input {
+                width: 90%;
+                border: none;
+                height: 30px;
+                border-bottom: 1px solid gray;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .box {
+        flex: 6;
+        position: relative;
+        hr {
+            background-color: gray;
+            height: 1px;
+            border: none;
+        }
+
+        .box-wrapper {
+            display: flex;
+            padding: 10px;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 95%;
+
+            .box-top {
+                overflow-y: scroll;
+                height: 100%;
+            }
+
+            .bottom {
+                margin: 10px 0px;
+                .bottom-wrapper {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+                    justify-content: space-between;
+
+                    input {
+                        width: 90%;
+                        height: 30px;
+                        border: none;
+                        background-color: #eff2f5;
+                        border-radius: 30px;
+                        padding: 5px 20px;
+                        font-size: 15px;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+
+                    i {
+                        font-size: 30px;
+                        margin-left: 10px;
+                        color: #006077;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .no-conversation {
+            position: absolute;
+            top: 10%;
+            font-size: 50px;
+            color: rgb(212, 204, 204);
+        }
+    }
+
+    .online {
+        flex: 3;
+        display: flex;
+        align-items: flex-start;
+
+        .online-wrapper {
+            margin-top: 20px;
+        }
+    }
+}

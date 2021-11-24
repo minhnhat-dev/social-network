@@ -1,0 +1,125 @@
+@import "_settings.scss";
+
+.messenger-box {
+    position: fixed;
+    width: 25vw;
+
+    top: $navigation-height;
+    right: 20px;
+    z-index: 10000;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 18%) 0px 2px 4px;
+    padding: 10px;
+
+    .messenger-box-header {
+        margin: 10px 0;
+
+        .messenger-box-search-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            .messenger-box-search-back {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                outline: none;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: transparent;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+
+            .messenger-box-search {
+                display: flex;
+                justify-content: flex-start;
+                border-radius: 40px;
+                background-color: $fds-gray-10;
+                align-items: center;
+                width: 100%;
+
+                .messenger-box-search-icon {
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+
+                .messenger-box-search-input {
+                    padding: 8px;
+                    outline: none;
+                    border: none;
+                    font-size: 17px;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+    .messenger-box-content {
+        width: 100%;
+        height: 60vh;
+        overflow-y: scroll;
+
+        .box-content-users {
+            .box-search-list {
+                .search-item {
+                    display: flex;
+                    align-items: center;
+                    margin: 5px 0px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    .search-item-icon {
+                        margin-right: 10px;
+                    }
+
+                    &:hover {
+                        transition: all 0.1s ease;
+                        background-color: $fds-gray-10;
+                    }
+
+                    .item-user-name {
+                        display: flex;
+                        flex-direction: column;
+
+                        .item-text {
+                            font-size: 16px;
+                            font-weight: 500;
+                        }
+                        .item-text-small {
+                            font-size: 14px;
+                            color: $fds-gray-70;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .messenger-footer {
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+        height: 40px;
+
+        .clear-messenger {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 18px;
+            color: white;
+            background-color: $base-blue;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

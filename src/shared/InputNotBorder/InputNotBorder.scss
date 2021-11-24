@@ -1,0 +1,27 @@
+@import "_settings.scss";
+
+.input-not-border {
+    display: flex;
+    align-items: center;
+
+    input {
+        height: 40px;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: $fds-gray-05;
+        width: 300px;
+        border-radius: 5px;
+        padding: 0 10px;
+    }
+
+    .input-group {
+        position: relative;
+
+        small {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+        }
+    }
+}

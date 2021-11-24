@@ -1,4 +1,4 @@
-import * as Yup from "yup";
+import * as Yup from "yup"
 
 const loginSchema = Yup.object().shape({
     email: Yup.string()
@@ -10,7 +10,7 @@ const loginSchema = Yup.object().shape({
         .min(5, "Password min 6 characters !")
         .max(50, "Password max 50 characters !")
         .required("Password is required !")
-});
+})
 
 const registerSchema = Yup.object().shape({
     name: Yup.string()
@@ -26,13 +26,12 @@ const registerSchema = Yup.object().shape({
         .min(5, "Password min 6 characters !")
         .max(50, "Password max 50 characters !")
         .required("Password is required !"),
-    passwordConfirm: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match !")
-});
+    passwordConfirm: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match !")
+})
 
 const userSchemas = {
     loginSchema,
     registerSchema
-};
+}
 
-export default userSchemas;
+export default userSchemas

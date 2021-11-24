@@ -1,0 +1,43 @@
+@import "_settings.scss";
+
+.button-header-wrapper {
+    width: 100px;
+
+    .button-header {
+        width: 100px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $fds-gray-70;
+        font-weight: 500;
+        background-color: white;
+        font-size: 16px;
+        &:hover {
+            background-color: $fds-gray-05;
+        }
+    }
+    .border-button-header {
+        background-color: $base-blue;
+        outline: none;
+        border: none;
+        height: 4px;
+        border-radius: 5px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.1s ease;
+
+        &.active-border {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .active {
+        color: $base-blue;
+        background-color: $fds-blue-05;
+    }
+}

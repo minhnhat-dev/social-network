@@ -1,36 +1,57 @@
-import "izitoast/dist/css/iziToast.min.css";
-import iZtoast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css"
+import iZtoast from "izitoast"
 
 const toast = {
-    error: (message = "Error", title = "Error: ") => iZtoast.error({
-        title,
-        message,
-        position: "topRight",
-        backgroundColor: "#FFD2D2",
-        titleColor: "#D8000C",
-        messageColor: "#D8000C",
-        iconColor: "#D8000C",
-        messageSize: "17",
-        titleSize: "17",
-        progressBarColor: "#D8000C",
-        transitionIn: "fadeInLeft",
-        icon: "far fa-times-circle"
-    }),
-    success: (message, title = "Success") => iZtoast.success({
-        title,
-        message,
-        position: "topRight",
-        backgroundColor: "#DFF2BF",
-        titleColor: "#4F8A10",
-        messageColor: "#4F8A10",
-        iconColor: "#4F8A10",
-        messageSize: "17",
-        titleSize: "17",
-        progressBarColor: "#4F8A10",
-        transitionIn: "fadeInLeft",
-        icon: "far fa-check-circle"
-    })
-};
+    error: (message = "", title = "") =>
+        iZtoast.error({
+            title,
+            message,
+            position: "topRight",
+            backgroundColor: "#FFD2D2",
+            titleColor: "#D8000C",
+            messageColor: "#D8000C",
+            iconColor: "#D8000C",
+            messageSize: "17",
+            titleSize: "17",
+            progressBarColor: "#D8000C",
+            transitionIn: "fadeInLeft",
+            icon: "far fa-times-circle",
+            progressBar: false,
+            timeout: 5000
+        }),
+    success: (message, title = "") =>
+        iZtoast.success({
+            title,
+            message,
+            position: "topRight",
+            backgroundColor: "#DFF2BF",
+            titleColor: "#4F8A10",
+            messageColor: "#4F8A10",
+            iconColor: "#4F8A10",
+            messageSize: "17",
+            titleSize: "17",
+            progressBarColor: "#4F8A10",
+            transitionIn: "fadeInLeft",
+            icon: "far fa-check-circle",
+            progressBar: false,
+            timeout: 5000
+        }),
+    notify: (message, title = "Notify") =>
+        iZtoast.success({
+            title,
+            message,
+            position: "topRight",
+            backgroundColor: "#BDE5F8",
+            titleColor: "#00529B",
+            messageColor: "#00529B",
+            iconColor: "#00529B",
+            messageSize: "17",
+            titleSize: "17",
+            progressBarColor: "#00529B",
+            transitionIn: "fadeInLeft",
+            icon: "far fa-bell"
+        })
+}
 
 //
 // .isa_info {
@@ -55,4 +76,4 @@ const toast = {
 //     vertical-align:middle;
 // }
 
-export default toast;
+export default toast
