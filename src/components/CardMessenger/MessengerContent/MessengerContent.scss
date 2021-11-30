@@ -23,6 +23,18 @@
             .text-messenger {
                 background-color: $base-blue;
                 color: white;
+
+                &.has-images {
+                    float: right;
+                }
+            }
+
+            .content-box-media {
+                img {
+                    max-width: 200px;
+                    object-fit: contain;
+                    border-radius: 5px;
+                }
             }
         }
     }
@@ -48,9 +60,20 @@
             margin: 2px;
             background-color: $fds-gray-10;
             color: black;
+            width: auto;
+            &.has-images {
+                float: right;
+            }
         }
         .text-messenger-time {
             margin-left: 5px;
+        }
+        .content-box-media {
+            img {
+                max-width: 200px;
+                object-fit: contain;
+                border-radius: 5px;
+            }
         }
     }
 }

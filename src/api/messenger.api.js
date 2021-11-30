@@ -1,6 +1,6 @@
 import clientApi from "./clientApi"
 
-const postsApi = {
+const messengerApi = {
     getConversations: async params => {
         const url = "/conversations"
         return clientApi.get(url, { params })
@@ -27,4 +27,4 @@ const postsApi = {
     }
 }
 
-export default postsApi
+export default messengerApi

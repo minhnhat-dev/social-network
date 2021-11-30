@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState, forwardRef } from "react"
 import { io } from "socket.io-client"
 import uuid from "react-uuid"
 import { useParams } from "react-router-dom"
@@ -62,4 +62,4 @@ function Message() {
     )
 }
 
-export default Message
+export default forwardRef(Message)

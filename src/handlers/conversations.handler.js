@@ -1,5 +1,5 @@
 import queryHelpers from "../helpers/query.helper"
-import conversationsApi from "../api/conversations-api"
+import conversationsApi from "../api/messenger.api"
 
 async function getConversations(params) {
     const conversations = await conversationsApi.getConversations(params)

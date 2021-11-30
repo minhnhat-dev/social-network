@@ -36,6 +36,7 @@ const SOCKET_URL = REACT_APP_NODE_ENV === "localhost" ? REACT_APP_SOCKET_URL_LOC
 function App() {
     const dispatch = useDispatch()
     const { user } = useSelector(state => state.auth)
+    const { currentBoxChat } = useSelector(state => state.messenger)
     useEffect(() => {
         function notifyMe() {
             if (!("Notification" in window)) {
@@ -87,7 +88,8 @@ function App() {
                 <div className="app">
                     <Loader />
                     <Navigation />
-                    <ListCardMessenger></ListCardMessenger>
+                    {currentBoxChat && currentBoxChat.length && <ListCardMessenger />}
+
                     {user && <SocketIOHandler />}
                     {/* <input type="checkbox" id="theme"></input> */}
                     <Switch>

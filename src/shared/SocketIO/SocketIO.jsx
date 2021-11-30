@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { POST_TYPES } from "actions/posts.action"
 import { NOTIFIES_TYPES } from "actions/notifies.action"
+import { MESSENGER_TYPES } from "actions/messenger.action"
 import { updateAuth, AUTH_TYPES } from "actions/auth.action"
 import audiobell from "audio/got-it-done-613.mp3"
 
@@ -123,6 +124,22 @@ function SocketIO() {
             })
         })
         return () => socket.off("removeNotifyToClient")
+    }, [socket, dispatch])
+
+    // Message
+    useEffect(() => {
+        socket.on("addMessageToClient", message => {
+            console.log("addMessageToClient", message)
+            dispatch({
+                type: MESSENGER_TYPES.ADD_MESSAGE,
+                payload: {
+                    message,
+                    userId: message.sender
+                }
+            })
+        })
+
+        return () => socket.off("addMessageToClient")
     }, [socket, dispatch])
     return (
         <>

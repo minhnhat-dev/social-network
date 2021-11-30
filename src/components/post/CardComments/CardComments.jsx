@@ -7,6 +7,8 @@ import postApi from "api/postApi"
 import UserCardCircle from "shared/UserCardCircle/UserCardCircle"
 import { Link } from "react-router-dom"
 import { createComment } from "actions/posts.action"
+import Reactions from "components/Reactions/Reactions"
+
 function CardComments({ post }) {
     const refInputComment = useRef()
     const dispatch = useDispatch()
@@ -19,6 +21,7 @@ function CardComments({ post }) {
     const [loading, setLoading] = useState(false)
     const [totalItem, setTotalItem] = useState(0)
     const [seeMore, setSeeMore] = useState(false)
+    const [showReaction, setShowReaction] = useState(false)
     const DEFAULT_LIMIT = 3
 
     useEffect(() => {
@@ -50,6 +53,7 @@ function CardComments({ post }) {
             console.log("newComment", newComment)
             setComments([newComment, ...comments])
             refInputComment.current.value = ""
+            setShowReaction(false)
         }
     }
 
@@ -76,6 +80,12 @@ function CardComments({ post }) {
         setLoading(false)
     }
 
+    const onClickReaction = icon => {
+        const currentContent = refInputComment.current.value
+        const newContent = currentContent.concat(icon)
+        refInputComment.current.value = newContent
+    }
+
     useEffect(() => {
         if (comments.length >= totalItem) {
             setSeeMore(false)
@@ -94,9 +104,18 @@ function CardComments({ post }) {
                             ref={refInputComment}
                             className="comments-input"
                             type="text"
-                            placeholder="Viet binh luan"
+                            placeholder="Write your comment"
                             onKeyDown={handleSubmit}
                         />
+                        <button className="comments-input-reactions">
+                            <Reactions
+                                content={""}
+                                transform={"left"}
+                                show={showReaction}
+                                onClickIcon={onClickReaction}
+                                onClickButton={setShowReaction}
+                            />
+                        </button>
                     </div>
                 </div>
                 <div className="card-comments-body">

@@ -1,27 +1,32 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import "./MessengerContent.scss"
 import TimeAgo from "timeago-react"
+import { imageShow, videoShow } from "helpers/media.helper"
 
-function MessengerContent({ own }) {
+function MessengerContent({ own, user, message }, ref) {
     return (
-        <div className={`messenger-content-box ${own && "own"}`}>
+        <div ref={ref} className={`messenger-content-box ${own && "own"}`}>
             <div className="content-box-avatar">
-                <img
-                    src="https://res.cloudinary.com/minhnhat-dev/image/upload/v1634585195/facebook-clone-profiles/aqdr4by2utqvsi8vtmz8.jpg"
-                    alt="avatar"
-                />
+                <img src={user.profilePicture} alt="avatar" />
             </div>
             <div className="content-box-text">
-                <p className="text-messenger">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae asperiores debitis eaque maiores
-                    dolorum repellendus illo
-                </p>
+                {message.text ? (
+                    <p className={`text-messenger ${message.media.length && "has-images"}`}>{message.text}</p>
+                ) : null}
+                {message.media.length
+                    ? message.media.map((item, index) => (
+                          <div className="content-box-media" key={index}>
+                              {item.url.match(/video/i) ? videoShow(item.url) : imageShow(item.url)}
+                          </div>
+                      ))
+                    : null}
+
                 <p className="fs-12 text-messenger-time">
-                    <TimeAgo datetime={"2021-11-11T15:24:21.105Z"} locale="en" live={false} />
+                    <TimeAgo datetime={message.createdAt} locale="en" live={false} />
                 </p>
             </div>
         </div>
     )
 }
 
-export default MessengerContent
+export default forwardRef(MessengerContent)

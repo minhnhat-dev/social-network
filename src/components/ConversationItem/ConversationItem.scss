@@ -7,6 +7,8 @@
     padding: 5px;
     flex-direction: column;
     border-radius: 5px;
+    z-index: 10000;
+
     cursor: pointer;
 
     &:hover {

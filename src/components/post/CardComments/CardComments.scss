@@ -20,6 +20,7 @@
             }
 
             .comments-input-group {
+                position: relative;
                 width: 100%;
                 overflow: auto;
                 height: 40px;
@@ -29,6 +30,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                overflow: visible;
 
                 .comments-input {
                     width: 95%;
@@ -37,6 +39,14 @@
                     outline: none;
                     background-color: inherit;
                     font-size: 17px;
+                }
+                .comments-input-reactions {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    &:hover {
+                        background-color: transparent;
+                    }
                 }
             }
         }

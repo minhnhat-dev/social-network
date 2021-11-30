@@ -1,12 +1,15 @@
 import { NOTIFICATION_TYPES } from "./notifications.action"
 import postApi from "api/postApi"
+import messengerApi from "api/messenger.api"
 import { imageUpload } from "helpers/upload.helper"
 import { createPostNotifyAction } from "actions/notifies.action"
 
 export const MESSENGER_TYPES = {
     GET_CONVERSATIONS: "GET_CONVERSATIONS",
     ADD_USER_CHAT: "ADD_USER_CHAT",
-    REMOVE_USER_CHAT: "REMOVE_USER_CHAT"
+    REMOVE_USER_CHAT: "REMOVE_USER_CHAT",
+    ADD_MESSAGE: "ADD_MESSAGE",
+    GET_MESSAGES: "GET_MESSAGES"
 }
 
 export const getPosts = params => async dispatch => {
@@ -59,3 +62,44 @@ export const removeUserChat = user => dispatch => {
         dispatch({ type: NOTIFICATION_TYPES.LOAD_DONE })
     }
 }
+
+export const createMessage =
+    ({ userId, body, socket }) =>
+        async dispatch => {
+            try {
+                dispatch({ type: NOTIFICATION_TYPES.LOAD_START })
+                const message = await messengerApi.createMessages(body)
+                socket.emit("addMessage", message)
+                dispatch({
+                    type: MESSENGER_TYPES.ADD_MESSAGE,
+                    payload: {
+                        message,
+                        userId
+                    }
+                })
+            } catch (error) {
+                console.log("+ createMessage() action error: => ", error)
+            } finally {
+                dispatch({ type: NOTIFICATION_TYPES.LOAD_DONE })
+            }
+        }
+
+export const getMessages =
+    ({ userId, params }) =>
+        async dispatch => {
+            try {
+                dispatch({ type: NOTIFICATION_TYPES.LOAD_START })
+                const { items = [], total } = await messengerApi.getMessages(params)
+                dispatch({
+                    type: MESSENGER_TYPES.GET_MESSAGES,
+                    payload: {
+                        userId,
+                        messages: items
+                    }
+                })
+            } catch (error) {
+                console.log("+ getMessages() action error: => ", error)
+            } finally {
+                dispatch({ type: NOTIFICATION_TYPES.LOAD_DONE })
+            }
+        }
