@@ -46,12 +46,7 @@ function CardHeader({ post = {} }) {
             <div className="post-card-header-wrapper">
                 <div className="card-header-user">
                     <Link to={`/profile/${post.user && post.user.id}`} className="text-link">
-                        <Avatar
-                            className="card-left-avatar"
-                            url={
-                                "https://res.cloudinary.com/minhnhat-dev/image/upload/v1630741594/facebook-clone-images/s9xvcmjwlwano1refwqo.jpg"
-                            }
-                        />
+                        <Avatar className="card-left-avatar" url={post.user.profilePicture} />
                     </Link>
 
                     <div className="header-user-info">

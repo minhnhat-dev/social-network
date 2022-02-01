@@ -5,7 +5,7 @@ import ButtonTitle from "shared/ButtonTitle/ButtonTitle"
 import BoxCreate from "./BoxCreate/BoxCreate"
 import { useSelector, useDispatch } from "react-redux"
 import { POST_TYPES } from "actions/posts.action"
-
+const URL_PUBLIC = "/assets/person/no-avatar.png"
 function CreatePost({ posts, setPosts }) {
     const { user } = useSelector(state => state.auth)
     const dispatch = useDispatch()
@@ -14,7 +14,7 @@ function CreatePost({ posts, setPosts }) {
         <div className="create-post">
             <BoxCreate posts={posts} setPosts={setPosts} />
             <div className="create-post-header">
-                <Avatar url={user.profilePicture} className="create-post-avatar" />
+                <Avatar url={user.profilePicture ? user.profilePicture : URL_PUBLIC} className="create-post-avatar" />
                 <button
                     onClick={() => {
                         dispatch({

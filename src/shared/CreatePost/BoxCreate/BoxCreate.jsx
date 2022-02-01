@@ -16,7 +16,7 @@ import { createPost, updatePost } from "actions/posts.action"
 import { POST_TYPES } from "actions/posts.action"
 import { reactions } from "constants/icons.constant"
 import Reactions from "components/Reactions/Reactions"
-
+const URL_PUBLIC = "/assets/person/no-avatar.png"
 function BoxCreate({ posts, setPosts }) {
     const { user } = useSelector(state => state.auth)
     const socket = useSelector(state => state.socket)
@@ -177,7 +177,10 @@ function BoxCreate({ posts, setPosts }) {
                 <hr className="hr-1" />
                 <div className="box-create-body">
                     <div className="create-body-header">
-                        <Avatar url={user.profilePicture} className="body-header-avatar" />
+                        <Avatar
+                            url={user.profilePicture ? user.profilePicture : URL_PUBLIC}
+                            className="body-header-avatar"
+                        />
                         <div className="body-header-user">
                             <h4 className="header-user-title">{user.username}</h4>
                             <button onClick={() => setShowVisible(!showVisible)} className="body-header-user-btn">

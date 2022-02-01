@@ -32,7 +32,7 @@ const styleLoader = {
 
 const { REACT_APP_SOCKET_URL_LOCAL, REACT_APP_NODE_ENV, REACT_APP_SOCKET_URL } = process.env
 const SOCKET_URL = REACT_APP_NODE_ENV === "localhost" ? REACT_APP_SOCKET_URL_LOCAL : REACT_APP_SOCKET_URL
-
+console.log("SOCKET_URL", SOCKET_URL)
 function App() {
     const dispatch = useDispatch()
     const { user } = useSelector(state => state.auth)
@@ -88,9 +88,9 @@ function App() {
                 <div className="app">
                     <Loader />
                     <Navigation />
-                    {currentBoxChat && currentBoxChat.length && <ListCardMessenger />}
+                    {currentBoxChat && currentBoxChat.length ? <ListCardMessenger /> : null}
 
-                    {user && <SocketIOHandler />}
+                    {user ? <SocketIOHandler /> : null}
                     {/* <input type="checkbox" id="theme"></input> */}
                     <Switch>
                         <Route exact={true} path="/" component={Home} />

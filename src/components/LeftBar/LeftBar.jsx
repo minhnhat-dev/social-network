@@ -4,7 +4,7 @@ import { PAGING } from "constants/global.constant"
 import userApi from "api/userApi"
 import LeftBarItem from "./LeftBarItem/LeftBarItem"
 import "./LeftBar.scss"
-
+const URL_PUBLIC = "/assets/person/no-avatar.png"
 function LeftBar() {
     const { user = {} } = useSelector(state => state.auth)
     const [users, setUsers] = useState([])
@@ -29,7 +29,11 @@ function LeftBar() {
             <div className="left-bar-wrapper">
                 <ul className="left-bar-content">
                     <li className="left-bar-content-item">
-                        <img className="left-bar-content-item-avatar" src={user.profilePicture} alt="avatar" />
+                        <img
+                            className="left-bar-content-item-avatar"
+                            src={user.profilePicture ? user.profilePicture : `${URL_PUBLIC}`}
+                            alt="avatar"
+                        />
                         <span className="fs-15 fw-500">{user.username}</span>
                     </li>
                     <li className="left-bar-content-item">
